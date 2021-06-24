@@ -1,11 +1,12 @@
 package za.co.bmw.stack
 
 import spock.lang.Specification
+import za.co.bmw.stack.Stack as BmwStack
 
 class StackSpecification extends Specification {
     def "Stack grows and shrinks with push and pop"() {
         setup: 'The default stack using the default constructor'
-        def stack = new Stack<Long>()
+        BmwStack stack = new BmwStack<Long>()
 
         expect: 'The stack to be empty'
         stack.empty()
@@ -44,7 +45,7 @@ class StackSpecification extends Specification {
 
     def "A stack with maxSize == -1 can grow without bounds"() {
         setup: 'A stack with maxSize == -1, and initial size of the backing storage = 5'
-        def stack = new Stack(5, -1)
+        BmwStack stack = new BmwStack(5, -1)
 
         expect: 'An empty stack'
         stack.empty()
@@ -62,7 +63,7 @@ class StackSpecification extends Specification {
 
     def "A stack with maxSize capped should throw an exception if pushed passed capacity"() {
         setup: 'A stack with maxSize == 10 and initial capacity of 8'
-        def stack = new Stack(8, 10)
+        def stack = new BmwStack(8, 10)
 
         expect: 'A stack with a backing storage size value of 8'
         stack.capacity() == 8
