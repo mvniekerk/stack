@@ -14,7 +14,7 @@ class StackSpecification extends Specification {
         stack.capacity() == 20
 
         when: 'Push 30 items of type Long onto the stack'
-        (0l..30l).each { i ->
+        (0l..<30l).each { i ->
             stack.push(i)
         }
 
@@ -27,7 +27,7 @@ class StackSpecification extends Specification {
 
         when: 'Pop the stack 30 times'
         def values = []
-        (0..30).each { i ->
+        (0..<30).each { i ->
             values << stack.pop()
         }
 
@@ -53,7 +53,7 @@ class StackSpecification extends Specification {
         stack.capacity() == 5
 
         when: 'Add 1000 items to the stack'
-        (0l..1000l).each { i -> stack.push(i)}
+        (0l..<1000l).each { i -> stack.push(i)}
 
         then: 'The stack count should have doubled 8 times to 1280 in capacity'
         stack.capacity() == 1280
@@ -63,13 +63,13 @@ class StackSpecification extends Specification {
 
     def "A stack with maxSize capped should throw an exception if pushed passed capacity"() {
         setup: 'A stack with maxSize == 10 and initial capacity of 8'
-        def stack = new BmwStack(8, 10)
+        BmwStack stack = new BmwStack(8, 10)
 
         expect: 'A stack with a backing storage size value of 8'
         stack.capacity() == 8
 
         when: 'Add 5 items to the stack'
-        (0..5).each {i -> stack.push(i)}
+        (0..<5).each {i -> stack.push(i)}
 
         then: 'The stack count should be 5'
         stack.count() == 5
@@ -77,7 +77,7 @@ class StackSpecification extends Specification {
         stack.capacity() == 8
 
         when: 'Push 4 more items onto the stack'
-        (0..4).each { i -> stack.push(i)}
+        (0..<4).each { i -> stack.push(i)}
 
         then: 'The amount of items in the stack should be 9'
         stack.count() == 9
