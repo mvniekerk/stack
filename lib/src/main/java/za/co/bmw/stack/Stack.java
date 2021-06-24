@@ -16,7 +16,7 @@ public class Stack<T> {
      * Sets initialSize to 20 items
      */
     public Stack() {
-        this(20, 01);
+        this(20, -1);
     }
 
     /**
@@ -26,11 +26,11 @@ public class Stack<T> {
      *                it set to -1 regardless
      */
     public Stack(int initialSize, int maxSize) {
-        this.maxSize = maxSize > 0 || maxSize == -1 ? maxSize : -1;
+        maxSize = maxSize > 0 || maxSize == -1 ? maxSize : -1;
+        this.maxSize = maxSize;
         initialSize = initialSize > 0 ? initialSize : 20;
         initialSize = initialSize > maxSize ? maxSize : initialSize;
 
-        this.maxSize = maxSize;
         this.storage = new Object[initialSize];
         this.pointer = -1;
     }
