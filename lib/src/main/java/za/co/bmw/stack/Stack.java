@@ -62,12 +62,12 @@ public class Stack<T> {
      * @return The last item on the stack, null if the stack is empty
      */
     public T pop() {
-        T val = (T)storage[pointer];
-        storage[pointer] = null;
-        --pointer;
         if (pointer == -1) {
             return null;
         }
+        T val = (T)storage[pointer];
+        storage[pointer] = null;
+        --pointer;
         return val;
     }
 
