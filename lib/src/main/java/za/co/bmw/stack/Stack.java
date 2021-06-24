@@ -84,7 +84,7 @@ public class Stack<T> {
      * @return
      */
     public int count() {
-        return pointer;
+        return pointer + 1;
     }
 
     /**
