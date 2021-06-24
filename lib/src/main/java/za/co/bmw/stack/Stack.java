@@ -1,11 +1,12 @@
 package za.co.bmw.stack;
+import java.util.Arrays;
 
 /**
  *
  * @param <T>
  */
 public class Stack<T> {
-    private T[] storage;
+    private Object[] storage;
     private int maxSize;
     private int pointer;
 
@@ -30,7 +31,7 @@ public class Stack<T> {
         initialSize = initialSize > maxSize ? maxSize : initialSize;
 
         this.maxSize = maxSize;
-        this.storage = new T[initialSize];
+        this.storage = new Object[initialSize];
         this.pointer = -1;
     }
 
@@ -61,7 +62,7 @@ public class Stack<T> {
      * @return The last item on the stack, null if the stack is empty
      */
     public T pop() {
-        T val = storage[pointer];
+        T val = (T)storage[pointer];
         storage[pointer] = null;
         --pointer;
         if (pointer == -1) {
