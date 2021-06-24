@@ -31,7 +31,7 @@ public class Stack<T> {
 
         this.maxSize = maxSize;
         this.storage = new T[initialSize];
-        this.pointer = -1
+        this.pointer = -1;
     }
 
     /**
