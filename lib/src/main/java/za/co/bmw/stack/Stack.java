@@ -29,7 +29,7 @@ public class Stack<T> {
         maxSize = maxSize > 0 || maxSize == -1 ? maxSize : -1;
         this.maxSize = maxSize;
         initialSize = initialSize > 0 ? initialSize : 20;
-        initialSize = initialSize > maxSize ? maxSize : initialSize;
+        initialSize = initialSize > maxSize && maxSize != -1 ? maxSize : initialSize;
 
         this.storage = new Object[initialSize];
         this.pointer = -1;
