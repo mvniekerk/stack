@@ -65,6 +65,7 @@ public class Stack<T> {
         if (pointer == -1) {
             return null;
         }
+        @SuppressWarnings("unchecked")
         T val = (T)storage[pointer];
         storage[pointer] = null;
         --pointer;
